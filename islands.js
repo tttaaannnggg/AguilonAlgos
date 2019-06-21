@@ -49,6 +49,7 @@ function countIslands(grid){
 function mapOneIsland(x,y,grid, name, map){
   if(grid[x] === undefined || grid[x][y] === undefined || grid[x][y] === '0'){
     return
+  return map;
   }
   if (!map[x]){
     map[x] = [];
@@ -69,9 +70,9 @@ function mapOneIsland(x,y,grid, name, map){
 }
 
 const landMap = [
-  ['1','0','0','0','0', '1'],
-  ['1','0','0','1','1', '1'],
-  ['1','1','1','1','0']
+  ['1','0','1','0','0'],
+  ['1','0','0','1','1'],
+  ['1','1','0','1','0']
 ];
 
 console.log(landMap);
