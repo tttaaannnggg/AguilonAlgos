@@ -18,5 +18,41 @@
  *  @return {number}
  */
 
+/*
+ * strategy: BFS tree traversal while counting depth
+ *
+ * sort coins high to low
+ *
+ * refactor: How do we kick out as soon as we see a valid sum?
+ *
+ */
+
 const coinChange = function(coins, amount) {
+  coins.sort( (a,b)=> b-a );
+  let lowest = Infinity;
+
+  const coinTraverse = function(amount, depth = 0){
+    if(amount === 0 && depth < lowest){
+      lowest = depth;
+    }
+    const bfs = [];
+    for (let i = 0; i < coins.length; i++){
+      const newAmt = amount - coins[i];
+      if (newAmt >=0){
+        bfs.push(newAmt);
+      }
+    }
+    for(let i = 0; i < bfs.length; i++){
+      coinTraverse(bfs[i], depth + 1);
+    }
+  }
+  coinTraverse(amount);
+
+  if (lowest === Infinity){
+    lowest = -1
+  }
+  return lowest;
 };
+
+console.log(coinChange([5,4,1],8))
+
