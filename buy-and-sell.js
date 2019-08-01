@@ -5,17 +5,17 @@
  */
 
 const maxProfit = (prices)=>{
-      let profit = 0
-      let lowestVal = prices[0];
-      for (let i = 0; i < prices.length; i++){
-                const newProfit = prices[i]-lowestVal;
-                if(newProfit > profit){
-                              profit = newProfit
-                          }
-                if (prices[i]<lowestVal){
-                            lowestVal = prices[i];
-                          }
-            }
-      return profit
+let profit = 0
+let lowestVal = prices[0];
+for (let i = 0; i < prices.length; i++){
+    const newProfit = prices[i]-lowestVal;
+    if(newProfit > profit){
+      profit = newProfit
+    }
+      if (prices[i]<lowestVal){
+      lowestVal = prices[i];
+    }
+  }
+  return profit
 }
 
